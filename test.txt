@@ -1,0 +1,17 @@
+Dockerfile 생성(dockerfile 이 있는 dir에서)
+docker build -t jeongsulee/7_aipark .
+docker build -t (이미지 이름) .
+sudo docker build -t (이미지 이름) .
+
+container 생성(volume bind를 할 dir에서)
+docker run -it -p 8000:8000 --name jsl jeongsulee/7_aipark
+docker run -it -p 8000:8000 --name jsl --network mybridge jeongsulee/7_aipark
+docker run -it -v ${PWD}:/workspace --name GPU -p 8000:8000 --name js jeongsulee/aipark
+docker run -it -v ${PWD}:/workspace --name GPU -p 8000:8000 --name (컨테이너 이름) (이미지이름)
+sudo docker run -it -v ${PWD}:/workspace --name GPU -p 8000:8000 --name (컨테이너 이름) (이미지이름)
+
+
++)
+forwarding이 아닌 expose로 사용하셔도 됩니다.
+디렉토리 구조를 변경하셔도 괜찮습니다.
+GET 요청은 통신이 잘 되는지 예시로 넣었습니다. POST를 통하여 요청/응답을 수행하시면 됩니다.
